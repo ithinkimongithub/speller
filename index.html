@@ -39,6 +39,12 @@
             indices [i]=0;
         }
         for (var q = 0; q < Math.pow(7, power); q++){
+            var appendee = "";
+            var indexword = "";
+            for(var j=0; j < power; j++){
+                appendee+= userletters.charAt(indices[j]);
+                indexword+=indices[j];
+            }
             indices[0]++;
             var domore = true ;
             for(var p= 0; p< power && domore; p++){
@@ -48,13 +54,7 @@
                 }
                 else domore = false;
             }
-            var appendee = starters ;
-            var indexword = "";
-            for (var j = 0; j < power ; j++){
-                appendee += userletters.charAt(indices[j]);
-                indexword+=indices[j];
-            }
-            master += (q.toString()+":"+indexword+":"+appendee+"<br>") ;
+            master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
         }
         document.getElementById("pout").innerHTML=master;
     }
