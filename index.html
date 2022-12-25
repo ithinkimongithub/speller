@@ -11,7 +11,7 @@
     }
 </style>
 <body>
-    <h1>Speller 4</h1>
+    <h1>Speller 4i</h1>
     <p id="test"></p>
     <p>Tell me your seven letters (first is mandatory center):</p>
     <input id="idseven" type="text">
@@ -25,11 +25,9 @@
 </body>
 <script>
     function Process(){
-        var contains = document.getElementById("idcontains").checked ;
-        if(contains==="true"){
-            document.getElementById("test").innerHTML="true";
-        }
-        
+        var contains = document.getElementById("idcontains").checked;
+        document.getElementById("test").innerHTML=contains;
+        var needs = !contains;
         var userletters = document.getElementById("idseven").value;
         var center = userletters.charAt(0);
         var starters = document.getElementById("idtwo").value;
@@ -45,9 +43,11 @@
         for (var q = 0; q < Math.pow(7, power); q++){
             var appendee = "";
             //var indexword = "";
+            var ok = false;
+            if(contains) ok = true;
             for(var j=power-1 ; j > -1 ; j--){
                 appendee+= userletters.charAt(indices[j]);
-                //indexword+=indices[j];
+                if(indices[j] == 0) ok = true;
             }
             indices[0]++;
             var domore = true ;
@@ -58,8 +58,10 @@
                 }
                 else domore = false;
             }
-            master += (starters + appendee + "<br>");
-            //master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
+            if(ok){
+                master += (starters + appendee + "<br>");
+                //master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
+            }
         }
         document.getElementById("pout").innerHTML=master;
     }
