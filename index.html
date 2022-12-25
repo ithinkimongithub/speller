@@ -12,14 +12,13 @@
 </style>
 <body>
     <h1>Speller</h1>
-    <p>Center Letter?</p>
-    <input id ="idcenter">
-    <p>Tell me your seven letters:</p>
+    <p>Tell me your seven letters (first is mandatory center):</p>
     <input id="idseven" type="text">
     <p>Tell me two letters to start with:</p>
     <input id="idtwo" >
     <p>How long are your words?</p>
-    <input id="idlength" type="number">
+    <input id="idlength" type="number"><br>
+    Contains center? <input id="idcontains" type="checkbox"><br>
     <button type="button" onclick= "Process()">Click Me</button>
     <p id ="pout">...</p>
 </body>
@@ -32,7 +31,7 @@
         var length = document.getElementById("idlength").value;
         document.getElementById("pout").innerHTML=userletters;
         var master = "  ";
-        //function recurse(start, 
+        
         var power = length - 2;
         var indices = [];
         for (var i = 0; i < power ; i++){
@@ -60,4 +59,3 @@
     }
 </script>
 </html>
-ok
