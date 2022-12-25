@@ -11,10 +11,10 @@
     }
 </style>
 <body>
-    <h1>Speller</h1>
+    <h1>Speller 2</h1>
     <p>Tell me your seven letters (first is mandatory center):</p>
     <input id="idseven" type="text">
-    <p>Tell me two letters to start with:</p>
+    <p>Tell me two or more letters to start with:</p>
     <input id="idtwo" >
     <p>How long are your words?</p>
     <input id="idlength" type="number"><br>
@@ -31,18 +31,18 @@
         var length = document.getElementById("idlength").value;
         document.getElementById("pout").innerHTML=userletters;
         var master = "  ";
-        
-        var power = length - 2;
+        var startlength = starters.length;
+        var power = length - startlength;
         var indices = [];
         for (var i = 0; i < power ; i++){
             indices [i]=0;
         }
         for (var q = 0; q < Math.pow(7, power); q++){
             var appendee = "";
-            var indexword = "";
+            //var indexword = "";
             for(var j=0; j < power; j++){
                 appendee+= userletters.charAt(indices[j]);
-                indexword+=indices[j];
+                //indexword+=indices[j];
             }
             indices[0]++;
             var domore = true ;
@@ -53,7 +53,8 @@
                 }
                 else domore = false;
             }
-            master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
+            master += (starters + appendee + "<br>");
+            //master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
         }
         document.getElementById("pout").innerHTML=master;
     }
