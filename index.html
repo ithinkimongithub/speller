@@ -4,11 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <title>Speller</title>
-    <!-- MathJax for equations means the local styles has to be removed. Apache 2.0 license -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
 </head>
 <style>
     table, th, td{
@@ -17,72 +12,9 @@
     }
 </style>
 <body>
-    <h1>LaTeXer</h1>
-    <p>Web-Based LaTeX Editor for equations. Do not refresh this page unless you wish to remove all your entries.
-        The backslash misbehaves with some characters. When you see red text, the LaTeX editor has come up to an error, and you can add a space in between your 
-        backslash and the following character. i.e: \\N becomes \ N and in LaTeX: \(\N\) into \(\ N\)
-    </p>
-    <table>
-        <tr>
-            <td>\(&lt\)</td><td>&lt</td>
-            <td>\(&gt\)</td><td>&gt</td>
-            <td>\(\leq\)</td><td>\leq</td>
-            <td>\(\geq\) </td><td>\geq</td>
-        </tr>
-        <tr>
-            <td>\(+\)</td><td>+</td>              
-            <td>\(-\)</td><td>-</td>    
-            <td>\(\times\)</td><td>\times</td>   
-           <td>\(\frac{x}{y}\)</td><td>\frac{x}{y}</td> 
-        </tr>
-        <tr>
-            <td>\(x^y\)</td> <td>x^y </td> 
-            <td>\(x_y\)</td><td>x_y</td>
-            <td>\(x^{upper}\)</td>  <td>x^{upper}</td>
-            <td>\(x_{y_{z}}\) </td><td>x_{y_{z}}</td>        
-        </tr>
-        <tr>
-            <td>\(x_{lower}^{upper}\) </td><td>x_{lower}^{upper}</td>  
-            <td>\(\int x dx\)</td><td>\int x dx</td>
-            <td>\(\int_0^1 x dx\)</td><td>\int_0^1 x dx</td>
-            <td>\(\int\limits_0^1 x dx\)</td><td>\int\limits_0^1 x dx</td>
-            
-        </tr>
-        <tr>
-            <td>\(\sqrt{x}\) </td><td>\sqrt{x}</td> 
-            <td>\(\sqrt[3]{x}\) </td><td>\sqrt[3]{x}</td> 
-            <td>\(\sum_{n=1}^{N}n\)</td><td>\sum_{n=1}^{N}n</td>
-            <td>\(9^\circ C\)</td><td>9^\circ C</td>
-        </tr>
-        <tr>
-            <td>\(\%\)</td><td>% misbehaves in html</td>
-            <td>\(\)</td><td>work in progress</td>
-            <td>\(\)</td><td>In-line and paranthetical LaTeX</td>
-            <td>\(\)</td><td>...differ</td>
-        </tr>
-    </table>
-    <p style="text-align:center">\min_{x}=\sum_{n=1}^{N}n</p>
-    <p>\[\min_{x}=\sum_{n=1}^{N}n\]</p>
-    <br>Start typing:
-    <br><input type="text" id="entry1" onchange="Changed(1)" size="100">
-    <br><p id="p1"></p>
-    <br><input type="text" id="entry2" onchange="Changed(2)" size="100">
-    <br><p id="p2"></p>
-    <br><input type="text" id="entry3" onchange="Changed(3)" size="100">
-    <br><p id="p3"></p>
-    <br><input type="text" id="entry4" onchange="Changed(4)" size="100">
-    <br><p id="p4"></p>
-    <br><input type="text" id="entry5" onchange="Changed(5)" size="100">
-    <br><p id="p5"></p>
-    <br><input type="text" id="entry6" onchange="Changed(6)" size="100">
-    <br><p id="p6"></p>
-    <br><input type="text" id="entry7" onchange="Changed(7)" size="100">
-    <br><p id="p7"></p>
-    <br>Pages uses <a href="https://www.mathjax.org/">MathJaX</a>. Though there are many LaTeX symbols: 
-        <a href="https://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdf">The Great, Big List of LaTeX Symbols</a>, 
-        going beyond Microsoft or MathJaX's library is not a concern of this webpage.
-    <br><br>When you're ready to go to Word, copy your LaTeX entries and have Word convert the LaTeX into "Professional" output.
-    <br><img src="professional.png" alt="Professional">
+    <h1>Speller</h1>
+    <p>I make words</p>
+    <input id="id0">
     <div style="font-size:10px;">
         Author: Thomas Kubler
     <a href="mailto:thomas.kubler@gmail.com">thomas.kubler@gmail.com</a>
