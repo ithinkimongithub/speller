@@ -14,43 +14,19 @@
 <body>
     <h1>Speller</h1>
     <p>I make words</p>
-    <input id="id0">
-    <div style="font-size:10px;">
-        Author: Thomas Kubler
+    <input id="id0" type="text">TellMe
     <a href="mailto:thomas.kubler@gmail.com">thomas.kubler@gmail.com</a>
+    <p>out: </p>
+    <p id="pout"> </p>
+    <button>Press</button>
 </body>
 <script>
-    function Changed(which){
-        var which_p = "p"+which;
-        var output = document.getElementById(which_p);
-        output.innerHTML = '';
-        var which_entry = "entry"+which;
-        var input = document.getElementById(which_entry).value;
-        console.log(which,which_p,which_entry,input);
+    function Process(){
+         document.getElementById("pout").innerHtml=
+         document.getElementById("id0").value;
 
-        MathJax.texReset();
-        var options = MathJax.getMetricsFor(output);
-        //options.display = display.checked;
-        MathJax.tex2chtmlPromise(input, options).then(function (node) {
-            //
-            //  The promise returns the typeset node, which we add to the output
-            //  Then update the document to include the adjusted CSS for the
-            //    content of the new equation.
-            //
-            output.appendChild(node);
-            MathJax.startup.document.clear();
-            MathJax.startup.document.updateDocument();
-        }).catch(function (err) {
-            //
-            //  If there was an error, put the message into the output instead
-            //
-            output.appendChild(document.createElement('pre')).appendChild(document.createTextNode(err.message));
-        }).then(function () {
-            //
-            //  Error or not, re-enable the display and render buttons
-            //
-            //button.disabled = display.disabled = false;
-        });
+
+
     }
 </script>
 </html>
