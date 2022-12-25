@@ -20,15 +20,16 @@
     <input id="idtwo" >
     <p>How long are your words?</p>
     <input id="idlength" type="number">
-    <button type="button" onclick="Processs()">Click Me</button>
+    <button type="button" onclick= "Process()">Click Me</button>
     <p id ="pout">...</p>
 </body>
 <script>
     function Process(){
+        var center = document.getElementById("idcenter").value;
         var letters = [];
         var userletters = document.getElementById("idseven").value;
         var starters = document.getElementById("idtwo").value;
-
+        var length = document.getElementById("idlength").value;
         document.getElementById("pout").innerHTML=userletters;
     }
 </script>
