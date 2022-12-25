@@ -11,7 +11,8 @@
     }
 </style>
 <body>
-    <h1>Speller 3</h1>
+    <h1>Speller 4</h1>
+    <p id="test"></p>
     <p>Tell me your seven letters (first is mandatory center):</p>
     <input id="idseven" type="text">
     <p>Tell me two or more letters to start with:</p>
@@ -24,9 +25,13 @@
 </body>
 <script>
     function Process(){
-        var center = document.getElementById("idcontains").value;
-        var letters = [];
+        var contains = document.getElementById("idcontains").value;
+        if(contains){
+            document.getElementById("test").innerHTML="true";
+        }
+        
         var userletters = document.getElementById("idseven").value;
+        var center = userletters.charAt(0);
         var starters = document.getElementById("idtwo").value;
         var length = document.getElementById("idlength").value;
         document.getElementById("pout").innerHTML=userletters;
