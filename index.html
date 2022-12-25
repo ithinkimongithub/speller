@@ -31,6 +31,31 @@
         var starters = document.getElementById("idtwo").value;
         var length = document.getElementById("idlength").value;
         document.getElementById("pout").innerHTML=userletters;
+        var master = "  ";
+        //function recurse(start, 
+        var power = length - 2;
+        var indices = [];
+        for (var i = 0; i < power ; i++){
+            indices [i]=0;
+        }
+        for (var q = 0; q < Math.pow(7, power); q++){
+            indices[0]++;
+            var domore = true ;
+            for(var p= 0; p< power && domore; p++){
+                if(indices[p]>6){
+                    indices[p]=0;
+                    indices[p+1]++;
+                }
+                else domore = false;
+            }
+            var appendee = starters ;
+            for (var j = 0; j < power ; j++){
+                appendee += userletters.charAt(indices[j]);
+            }
+            appendee += "\n";
+            master += appendee ;
+        }
+        document.getElementById("pout").innerHTML=master;
     }
 </script>
 </html>
