@@ -49,11 +49,12 @@
                 else domore = false;
             }
             var appendee = starters ;
+            var indexword = "";
             for (var j = 0; j < power ; j++){
                 appendee += userletters.charAt(indices[j]);
+                indexword+=indices[j];
             }
-            appendee += "\n";
-            master += appendee ;
+            master += (q.toString()+":"+indexword+":"+appendee+"<br>") ;
         }
         document.getElementById("pout").innerHTML=master;
     }
