@@ -72,6 +72,7 @@
                 for(var i=0; i< 7; i++){
                     if(pindex[i]== 0){
                         ispangram=false;
+                        ok=false;
                     }
                 }
             }
@@ -85,9 +86,9 @@
                 else domore = false;
             }
             if(ok){
-                for(var s =0;s < 7; s++){
-                    master+=pindex[s].toString();
-                }
+                //for(var s =0;s < 7; s++){
+                 //   master+=pindex[s].toString();
+                //}
                 master += (starters + appendee + "<br>");
                 //master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
             }
