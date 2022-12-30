@@ -11,7 +11,7 @@
     }
 </style>
 <body>
-    <h1>Speller 4j</h1>
+    <h1>Speller 4k</h1>
     <p id="test"></p>
     <p>Tell me your seven letters (first is mandatory center):</p>
     <input id="idseven" type="text">
@@ -41,12 +41,12 @@
         var indices = [];
         var pindex  = [];
         for(var i = 0; i < 7; i++){
-            pindex[i]= false;
+            pindex[i]= 0;
         }
         var ifirst  = userletters.indexOf(starters.charAt(0));
         var isecond = userletters.indexOf(starters.charAt(1));
-        pindex[ifirst] = true;
-        pindex[isecond]= true;
+        pindex[ifirst] = 1;
+        pindex[isecond]= 1;
         for (var i = 0; i < power ; i++){
             indices [i]=0;
         }
@@ -63,15 +63,15 @@
             if(length > 6 && pangram == true && ok == true ){
                 ispangram=true;
                 for(var i =0; i< 7; i++){
-                    pindex[i]=false;
+                    pindex[i]=0;
                 }
-                pindex[ifirst]=true;
-                pindex[isecond]=true;
+                pindex[ifirst]=1;
+                pindex[isecond]=1;
                 for(var k= 0; k< power; k++){
-                    pindex[indices[k]]=true;
+                    pindex[indices[k]]=1;
                 }
                 for(var i=0; i< 7; i++){
-                    if(pindex[i]== false){
+                    if(pindex[i]== 0){
                         ispangram=false;
                     }
                 }
@@ -86,7 +86,10 @@
                 else domore = false;
             }
             if(ok){
-                master += (starters + appendee + ispangram+ "<br>");
+                for(var q=0;q<7;q++){
+                    master+=pindex[q].toString();
+                }
+                master += (starters + appendee + "<br>");
                 //master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
             }
         }
