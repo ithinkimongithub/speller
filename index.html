@@ -11,7 +11,7 @@
     }
 </style>
 <body>
-    <h1>Speller 4i</h1>
+    <h1>Speller 4j</h1>
     <p id="test"></p>
     <p>Tell me your seven letters (first is mandatory center):</p>
     <input id="idseven" type="text">
@@ -73,7 +73,6 @@
                 for(var i=0; i< 7; i++){
                     if(pindex[i]== false){
                         ispangram=false;
-                        ok=false;
                     }
                 }
             }
@@ -87,7 +86,7 @@
                 else domore = false;
             }
             if(ok){
-                master += (starters + appendee + "<br>");
+                master += (starters + appendee + ispangram+ "<br>");
                 //master += (q.toString()+":"+indexword+":"+starters+appendee+"<br>") ;
             }
         }
