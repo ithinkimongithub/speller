@@ -20,12 +20,14 @@
     <p>How long are your words?</p>
     <input id="idlength" type="number"><br>
     Contains center? <input id="idcontains" type="checkbox"><br>
+    Show only pangrams? <input id="pangram" type="checkbox"><br>
     <button type="button" onclick= "Process()">Click Me</button>
     <p id ="pout">...</p>
 </body>
 <script>
     function Process(){
         var contains = document.getElementById("idcontains").checked;
+        var pangram  = document.getElementById("pangram").checked;
         document.getElementById("test").innerHTML=contains;
         var needs = !contains;
         var userletters = document.getElementById("idseven").value;
@@ -37,22 +39,48 @@
         var startlength = starters.length;
         var power = length - startlength;
         var indices = [];
+        var pindex  = [];
+        for(var i = 0; i < 7; i++){
+            pindex[i]= false;
+        }
+        var ifirst  = userletters.indexOf(starters.charAt(0));
+        var isecond = userletters.indexOf(starters.charAt(1));
+        pindex[ifirst] = true;
+        pindex[isecond]= true;
         for (var i = 0; i < power ; i++){
             indices [i]=0;
         }
         for (var q = 0; q < Math.pow(7, power); q++){
             var appendee = "";
             //var indexword = "";
-            var ok = false;
+            var ispangram = false;
+            var ok = false; // Checks if word contains mandatory letter (zeroth)
             if(contains) ok = true;
             for(var j=power-1 ; j > -1 ; j--){
                 appendee+= userletters.charAt(indices[j]);
                 if(indices[j] == 0) ok = true;
             }
+            if(length > 6 && pangram == true && ok == true ){
+                ispangram=true;
+                for(var i =0; i< 7; i++){
+                    pindex[i]=false;
+                }
+                pindex[ifirst]=true;
+                pindex[isecond]=true;
+                for(var k= 0; k< power; k++){
+                    pindex[indices[k]]=true;
+                }
+                for(var i=0; i< 7; i++){
+                    if(pindex[i]== false){
+                        ispangram=false;
+                        ok=false;
+                    }
+                }
+            }
             indices[0]++;
             var domore = true ;
             for(var p= 0; p< power && domore; p++){
-                if(indices[p]>6){
+                if(indices[p]>6){ 
                     indices[p]=0;
                     indices[p+1]++;
                 }
