@@ -11,7 +11,7 @@
     }
 </style>
 <body>
-    <h1>Speller 4k</h1>
+    <h1>Speller 4m</h1>
     <p id="test"></p>
     <p>Tell me your seven letters (first is mandatory center):</p>
     <input id="idseven" type="text">
@@ -40,13 +40,14 @@
         var power = length - startlength;
         var indices = [];
         var pindex  = [];
+        var pstart = [];
         for(var i = 0; i < 7; i++){
             pindex[i]= 0;
+            pstart[i]= 0;
         }
-        var ifirst  = userletters.indexOf(starters.charAt(0));
-        var isecond = userletters.indexOf(starters.charAt(1));
-        pindex[ifirst] = 1;
-        pindex[isecond]= 1;
+        for(var i= 0; i< startlength; i++){
+            pstart[userletters.indexOf(starters.charAt(i))]=1;
+        }
         for (var i = 0; i < power ; i++){
             indices [i]=0;
         }
@@ -63,10 +64,8 @@
             if(length > 6 && pangram == true && ok == true ){
                 ispangram=true;
                 for(var i =0; i< 7; i++){
-                    pindex[i]=0;
+                    pindex[i]=pstart[i];
                 }
-                pindex[ifirst]=1;
-                pindex[isecond]=1;
                 for(var k= 0; k< power; k++){
                     pindex[indices[k]]=1;
                 }
