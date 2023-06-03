@@ -21,6 +21,7 @@
     <input id="idlength" type="number"><br>
     Contains center? <input id="idcontains" type="checkbox"><br>
     Show only pangrams? <input id="pangram" type="checkbox"><br>
+    Show no pangrams? <input id = "pangramno" type="checkbox" > <br>
     <button type="button" onclick= "Process()">Click Me</button>
     <p id ="pout">...</p>
 </body>
@@ -28,6 +29,7 @@
     function Process(){
         var contains = document.getElementById("idcontains").checked;
         var pangram  = document.getElementById("pangram").checked;
+        var nopans = document.getElementById("pangramno").checked;
         document.getElementById("test").innerHTML=contains;
         var needs = !contains;
         var userletters = document.getElementById("idseven").value;
@@ -73,6 +75,22 @@
                     if(pindex[i]== 0){
                         ispangram=false;
                         ok=false;
+                    }
+                }
+            }
+            if(length > 6 && nopans == true && ok == true){
+                ispangram = true;
+                ok = false;
+                for(var i= 0; i<7; i++){
+                    pindex[i] = pstart[i];
+                }
+                for(var k= 0; k<power; k++){
+                    pindex[indices[k]]=1;
+                }
+                for(var i=0;i<7;i++){
+                    if(pindex[i]==0){
+                        ispangram=false;
+                        ok=true;
                     }
                 }
             }
